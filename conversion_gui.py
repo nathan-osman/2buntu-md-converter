@@ -1,5 +1,7 @@
 from PyQt5 import QtCore, QtWidgets
 
+from twobuntu_converter import TwobuntuConverter
+
 
 class ConversionGUI(QtWidgets.QDialog):
 	"""
@@ -11,6 +13,7 @@ class ConversionGUI(QtWidgets.QDialog):
 		Initialize the dialog.
 		"""
 		super().__init__()
+		self._converter = TwobuntuConverter()
 		self.setWindowTitle("2buntu Markdown Converter")
 		vbox = QtWidgets.QVBoxLayout()
 		# Create the two text controls
@@ -31,7 +34,9 @@ class ConversionGUI(QtWidgets.QDialog):
 		"""
 		Perform conversion.
 		"""
-		# TODO: perform conversion
+		original = self._original.toPlainText()
+		converted = self._converter.convert(original)
+		self._converted.setPlainText(converted)
 
 
 if __name__ == '__main__':
