@@ -20,4 +20,8 @@ The following requirements must be met in order to use the markdown converter:
 
 ### Running the script
 
-TODO
+Once installed, the script can be run as follows:
+
+    2bconverter
+
+In the future, the application will accept a command-line parameter that specifies a file to convert.
