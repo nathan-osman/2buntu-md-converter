@@ -1,11 +1,11 @@
 from PyQt5 import QtCore, QtWidgets
 
-from twobuntu_converter import TwobuntuConverter
+from .converter import TwobuntuConverter
 
 
 class ConversionGUI(QtWidgets.QDialog):
     """
-    An interface for performing markdown conversion.
+    A graphical interface for performing markdown conversion.
     """
 
     def __init__(self):
@@ -37,8 +37,3 @@ class ConversionGUI(QtWidgets.QDialog):
         original = self._original.toPlainText()
         converted = self._converter.convert(original)
         self._converted.setPlainText(converted)
-
-
-if __name__ == '__main__':
-    a = QtWidgets.QApplication([])
-    ConversionGUI().exec()
