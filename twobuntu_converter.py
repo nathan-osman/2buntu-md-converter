@@ -103,17 +103,17 @@ class TwobuntuConverter:
         self._modify_text(soup, 'span', '\n', '', 'pre')
         # Remove div tags
         self._modify_text(soup, 'div', '\n', '', 'pre')
-    
+
     def _find_pre_parent(self, block):
         """
         Determine if one of the parents of block is a <pre>.
-        
+
         :param block: the block to search
         :returns: true if a <pre> was found
         """
         if hasattr(block, 'parents'):
             return any([p.name == 'pre' for p in block.parents])
-    
+
     def _strip_captions(self, text):
         """
         Remove [caption] shortcodes.
@@ -131,8 +131,8 @@ class TwobuntuConverter:
     def _strip_shortcode(self, text, shortcode, callback=None):
         """
         Strips a shortcode from the text.
-        
-        :param text: the text to search 
+
+        :param text: the text to search
         :param shortcode: the shortcode to strip
         :param callack: a callback to process the shortcode
         :returns: the text with the shortcode replaced
@@ -170,4 +170,3 @@ class TwobuntuConverter:
                 element.unwrap()
             else:
                 return False
-
